@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ShowAllAccounts">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowAllAccountsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowAllAccountsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowTotalAmountOfAccounts">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowTotalAmountOfAccountsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ShowTotalAmountOfAccountsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowAccountsForCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="customerID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowAccountsForCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowAccountsForCustomerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBankAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accountID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBankAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteBankAccountResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOpenDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accountID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOpenDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetOpenDateResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRunningTotal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accountID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRunningTotalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetRunningTotalResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetRunningTotal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accountID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="runningTotal" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetRunningTotalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetRunningTotalResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accountID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountPin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accountID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountPinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountPinResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAccountPin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accountID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerPin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAccountPinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetAccountPinResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCurrentBankAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="customerID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountPin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCurrentBankAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateCurrentBankAccountResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOverdraftLimit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accountID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOverdraftLimitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetOverdraftLimitResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetOverdraftLimit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accountID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="overdraftLimit" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetOverdraftLimitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetOverdraftLimitResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSavingsBankAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="customerID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountPin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSavingsBankAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateSavingsBankAccountResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInterestRate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accountID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInterestRateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetInterestRateResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetInterestRate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accountID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="interestRate" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetInterestRateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetInterestRateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ShowAllAccountsSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowAllAccounts" />
+  </wsdl:message>
+  <wsdl:message name="ShowAllAccountsSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowAllAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowTotalAmountOfAccountsSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowTotalAmountOfAccounts" />
+  </wsdl:message>
+  <wsdl:message name="ShowTotalAmountOfAccountsSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowTotalAmountOfAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowAccountsForCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowAccountsForCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ShowAccountsForCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowAccountsForCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBankAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBankAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOpenDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOpenDate" />
+  </wsdl:message>
+  <wsdl:message name="GetOpenDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOpenDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRunningTotalSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRunningTotal" />
+  </wsdl:message>
+  <wsdl:message name="GetRunningTotalSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRunningTotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetRunningTotalSoapIn">
+    <wsdl:part name="parameters" element="tns:SetRunningTotal" />
+  </wsdl:message>
+  <wsdl:message name="SetRunningTotalSoapOut">
+    <wsdl:part name="parameters" element="tns:SetRunningTotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountType" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountPinSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountPin" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountPinSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountPinResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetAccountPinSoapIn">
+    <wsdl:part name="parameters" element="tns:SetAccountPin" />
+  </wsdl:message>
+  <wsdl:message name="SetAccountPinSoapOut">
+    <wsdl:part name="parameters" element="tns:SetAccountPinResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateCurrentBankAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateCurrentBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="CreateCurrentBankAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateCurrentBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOverdraftLimitSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOverdraftLimit" />
+  </wsdl:message>
+  <wsdl:message name="GetOverdraftLimitSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOverdraftLimitResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetOverdraftLimitSoapIn">
+    <wsdl:part name="parameters" element="tns:SetOverdraftLimit" />
+  </wsdl:message>
+  <wsdl:message name="SetOverdraftLimitSoapOut">
+    <wsdl:part name="parameters" element="tns:SetOverdraftLimitResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSavingsBankAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateSavingsBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="CreateSavingsBankAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSavingsBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInterestRateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInterestRate" />
+  </wsdl:message>
+  <wsdl:message name="GetInterestRateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInterestRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetInterestRateSoapIn">
+    <wsdl:part name="parameters" element="tns:SetInterestRate" />
+  </wsdl:message>
+  <wsdl:message name="SetInterestRateSoapOut">
+    <wsdl:part name="parameters" element="tns:SetInterestRateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BankAccountManagementServiceSoap">
+    <wsdl:operation name="ShowAllAccounts">
+      <wsdl:input message="tns:ShowAllAccountsSoapIn" />
+      <wsdl:output message="tns:ShowAllAccountsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowTotalAmountOfAccounts">
+      <wsdl:input message="tns:ShowTotalAmountOfAccountsSoapIn" />
+      <wsdl:output message="tns:ShowTotalAmountOfAccountsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowAccountsForCustomer">
+      <wsdl:input message="tns:ShowAccountsForCustomerSoapIn" />
+      <wsdl:output message="tns:ShowAccountsForCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBankAccount">
+      <wsdl:input message="tns:DeleteBankAccountSoapIn" />
+      <wsdl:output message="tns:DeleteBankAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenDate">
+      <wsdl:input message="tns:GetOpenDateSoapIn" />
+      <wsdl:output message="tns:GetOpenDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRunningTotal">
+      <wsdl:input message="tns:GetRunningTotalSoapIn" />
+      <wsdl:output message="tns:GetRunningTotalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRunningTotal">
+      <wsdl:input message="tns:SetRunningTotalSoapIn" />
+      <wsdl:output message="tns:SetRunningTotalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountType">
+      <wsdl:input message="tns:GetAccountTypeSoapIn" />
+      <wsdl:output message="tns:GetAccountTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountPin">
+      <wsdl:input message="tns:GetAccountPinSoapIn" />
+      <wsdl:output message="tns:GetAccountPinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAccountPin">
+      <wsdl:input message="tns:SetAccountPinSoapIn" />
+      <wsdl:output message="tns:SetAccountPinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCurrentBankAccount">
+      <wsdl:input message="tns:CreateCurrentBankAccountSoapIn" />
+      <wsdl:output message="tns:CreateCurrentBankAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOverdraftLimit">
+      <wsdl:input message="tns:GetOverdraftLimitSoapIn" />
+      <wsdl:output message="tns:GetOverdraftLimitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetOverdraftLimit">
+      <wsdl:input message="tns:SetOverdraftLimitSoapIn" />
+      <wsdl:output message="tns:SetOverdraftLimitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSavingsBankAccount">
+      <wsdl:input message="tns:CreateSavingsBankAccountSoapIn" />
+      <wsdl:output message="tns:CreateSavingsBankAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInterestRate">
+      <wsdl:input message="tns:GetInterestRateSoapIn" />
+      <wsdl:output message="tns:GetInterestRateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetInterestRate">
+      <wsdl:input message="tns:SetInterestRateSoapIn" />
+      <wsdl:output message="tns:SetInterestRateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BankAccountManagementServiceSoap" type="tns:BankAccountManagementServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ShowAllAccounts">
+      <soap:operation soapAction="http://tempuri.org/ShowAllAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowTotalAmountOfAccounts">
+      <soap:operation soapAction="http://tempuri.org/ShowTotalAmountOfAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowAccountsForCustomer">
+      <soap:operation soapAction="http://tempuri.org/ShowAccountsForCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBankAccount">
+      <soap:operation soapAction="http://tempuri.org/DeleteBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenDate">
+      <soap:operation soapAction="http://tempuri.org/GetOpenDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRunningTotal">
+      <soap:operation soapAction="http://tempuri.org/GetRunningTotal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRunningTotal">
+      <soap:operation soapAction="http://tempuri.org/SetRunningTotal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountType">
+      <soap:operation soapAction="http://tempuri.org/GetAccountType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountPin">
+      <soap:operation soapAction="http://tempuri.org/GetAccountPin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAccountPin">
+      <soap:operation soapAction="http://tempuri.org/SetAccountPin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCurrentBankAccount">
+      <soap:operation soapAction="http://tempuri.org/CreateCurrentBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOverdraftLimit">
+      <soap:operation soapAction="http://tempuri.org/GetOverdraftLimit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetOverdraftLimit">
+      <soap:operation soapAction="http://tempuri.org/SetOverdraftLimit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSavingsBankAccount">
+      <soap:operation soapAction="http://tempuri.org/CreateSavingsBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInterestRate">
+      <soap:operation soapAction="http://tempuri.org/GetInterestRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetInterestRate">
+      <soap:operation soapAction="http://tempuri.org/SetInterestRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BankAccountManagementServiceSoap12" type="tns:BankAccountManagementServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ShowAllAccounts">
+      <soap12:operation soapAction="http://tempuri.org/ShowAllAccounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowTotalAmountOfAccounts">
+      <soap12:operation soapAction="http://tempuri.org/ShowTotalAmountOfAccounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowAccountsForCustomer">
+      <soap12:operation soapAction="http://tempuri.org/ShowAccountsForCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBankAccount">
+      <soap12:operation soapAction="http://tempuri.org/DeleteBankAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenDate">
+      <soap12:operation soapAction="http://tempuri.org/GetOpenDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRunningTotal">
+      <soap12:operation soapAction="http://tempuri.org/GetRunningTotal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRunningTotal">
+      <soap12:operation soapAction="http://tempuri.org/SetRunningTotal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountType">
+      <soap12:operation soapAction="http://tempuri.org/GetAccountType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountPin">
+      <soap12:operation soapAction="http://tempuri.org/GetAccountPin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAccountPin">
+      <soap12:operation soapAction="http://tempuri.org/SetAccountPin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCurrentBankAccount">
+      <soap12:operation soapAction="http://tempuri.org/CreateCurrentBankAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOverdraftLimit">
+      <soap12:operation soapAction="http://tempuri.org/GetOverdraftLimit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetOverdraftLimit">
+      <soap12:operation soapAction="http://tempuri.org/SetOverdraftLimit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSavingsBankAccount">
+      <soap12:operation soapAction="http://tempuri.org/CreateSavingsBankAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInterestRate">
+      <soap12:operation soapAction="http://tempuri.org/GetInterestRate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetInterestRate">
+      <soap12:operation soapAction="http://tempuri.org/SetInterestRate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BankAccountManagementService">
+    <wsdl:port name="BankAccountManagementServiceSoap" binding="tns:BankAccountManagementServiceSoap">
+      <soap:address location="https://localhost:44332/ServiceBankAccountManagement.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BankAccountManagementServiceSoap12" binding="tns:BankAccountManagementServiceSoap12">
+      <soap12:address location="https://localhost:44332/ServiceBankAccountManagement.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

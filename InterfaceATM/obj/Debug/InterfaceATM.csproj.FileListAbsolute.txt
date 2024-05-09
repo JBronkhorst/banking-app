@@ -1,0 +1,16 @@
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\obj\Debug\InterfaceATM.csproj.AssemblyReference.cache
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\obj\Debug\InterfaceATM.Properties.Resources.resources
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\obj\Debug\InterfaceATM.csproj.GenerateResource.cache
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\obj\Debug\InterfaceATM.csproj.CoreCompileInputs.cache
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\bin\Debug\InterfaceATM.exe.config
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\bin\Debug\InterfaceATM.exe
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\bin\Debug\InterfaceATM.pdb
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\obj\Debug\InterfaceATM.exe
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\obj\Debug\InterfaceATM.pdb
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\obj\Debug\InterfaceATM.loginPage.resources
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\obj\Debug\InterfaceATM.depositMoney.resources
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\obj\Debug\InterfaceATM.editPin.resources
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\obj\Debug\InterfaceATM.mainPage.resources
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\obj\Debug\InterfaceATM.viewBalance.resources
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\obj\Debug\InterfaceATM.withdrawMoney.resources
+C:\Users\jbron\source\repos\ABCBankingGroup\InterfaceATM\obj\Debug\InterfaceATM.smallStatement.resources
